@@ -1,0 +1,47 @@
+###
+
+GET http://localhost:8080/temp/1234567 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+###
+
+GET http://localhost:8080/temp/123456789 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+###
+
+GET http://localhost:8080/temp/12345678 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+###
+
+GET http://localhost:8080/temp/80530908 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+###
+
+GET https://fullcycle-deploy-cloud-run-287183371119.us-central1.run.app/temp/1234567 HTTP/1.1
+Host: fullcycle-deploy-cloud-run-287183371119.us-central1.run.app
+Content-Type: application/json
+
+###
+
+GET https://fullcycle-deploy-cloud-run-287183371119.us-central1.run.app/temp/123456789 HTTP/1.1
+Host: fullcycle-deploy-cloud-run-287183371119.us-central1.run.app
+Content-Type: application/json
+
+###
+
+GET https://fullcycle-deploy-cloud-run-287183371119.us-central1.run.app/temp/12345678 HTTP/1.1
+Host: fullcycle-deploy-cloud-run-287183371119.us-central1.run.app
+Content-Type: application/json
+
+###
+
+GET https://fullcycle-deploy-cloud-run-287183371119.us-central1.run.app/temp/80530908 HTTP/1.1
+Host: fullcycle-deploy-cloud-run-287183371119.us-central1.run.app
+Content-Type: application/json
