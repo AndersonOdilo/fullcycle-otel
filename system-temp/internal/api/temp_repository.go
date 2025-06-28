@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/AndersonOdilo/otel/configs"
-	"github.com/AndersonOdilo/otel/internal/entity"
+	"github.com/AndersonOdilo/otel/system-temp/configs"
+	"github.com/AndersonOdilo/otel/system-temp/internal/entity"
 )
 
 type WeatherApiResponse struct {

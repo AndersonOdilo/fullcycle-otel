@@ -34,8 +34,9 @@ services:
       - 4317:4317  
 
 
-  temp-system:
-    build: .
+  service-b:
+    build: 
+      dockerfile: dockerfile.service-b
     restart: always
     ports:
-      - 8080:8080
+      - 8081:8081

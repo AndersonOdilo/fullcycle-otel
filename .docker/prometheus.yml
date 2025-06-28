@@ -5,7 +5,7 @@ scrape_configs:
       - targets: ['otel-collector:8889']
       - targets: ['otel-collector:8888']
 
-  - job_name: 'temp-system'
+  - job_name: 'service-b'
     scrape_interval: 10s
     static_configs:
-      - targets: ['input-api:8080']
+      - targets: ['input-api:8081']
