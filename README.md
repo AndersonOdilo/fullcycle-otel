@@ -1,13 +1,12 @@
-# fullcycle-google-cloud-run
+# fullcycle-otel
 
 ## Portas Utilizadas
 - Servidor web: 8080
-
+- Zipkin: 9411
 
 ## Enpoints disponivel
 
-- Local: localhost:8080/temp/{cep}
-- Google Cloud Run: https://fullcycle-deploy-cloud-run-287183371119.us-central1.run.app/temp/{cep}
+- Local: POST http://localhost:8080/
 
 ## Como rodar o projeto
 
@@ -20,4 +19,3 @@ docker-compose up
 
 1. Teste a aplicação REST API server
     - faça as chamadas usando o arquivo [api.http](api/api.http)
-    - rode os testes unitarios da aplicação

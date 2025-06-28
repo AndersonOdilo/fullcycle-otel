@@ -33,6 +33,12 @@ services:
       - 8889:8889   
       - 4317:4317  
 
+  service-a:
+    build: 
+      dockerfile: ./service-a/dockerfile
+    restart: always
+    ports:
+      - 8080:8080
 
   service-b:
     build: 

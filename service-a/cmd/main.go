@@ -8,10 +8,10 @@ import (
 	"os/signal"
 	"time"
 
-	"github.com/AndersonOdilo/otel/service-b/configs"
-	"github.com/AndersonOdilo/otel/service-b/internal/api"
-	"github.com/AndersonOdilo/otel/service-b/internal/infra/web"
-	"github.com/AndersonOdilo/otel/service-b/internal/infra/web/webserver"
+	"github.com/AndersonOdilo/otel/service-a/configs"
+	"github.com/AndersonOdilo/otel/service-a/internal/api"
+	"github.com/AndersonOdilo/otel/service-a/internal/infra/web"
+	"github.com/AndersonOdilo/otel/service-a/internal/infra/web/webserver"
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc"
 	"go.opentelemetry.io/otel/propagation"
@@ -44,15 +44,14 @@ func main() {
 	}()
 
 	
-	tracer := otel.Tracer("service-b-api")
+	tracer := otel.Tracer("service-a-api")
 
 	fmt.Println("Starting web server on port", configs.WebServerPort)
-	locationRepository := api.NewLocationRepository();
 	tempRepository := api.NewTempRepository(*configs);
 
 	webserver := webserver.NewWebServer(configs.WebServerPort)
-	webTempHandler := web.NewWebTempHandler(locationRepository, tempRepository, tracer);
-	webserver.AddHandler("GET /temp/{cep}", webTempHandler.Get)
+	webTempHandler := web.NewWebTempHandler(tempRepository, tracer);
+	webserver.AddHandler("POST /", webTempHandler.Get)
 	go webserver.Start()
 
 	select {

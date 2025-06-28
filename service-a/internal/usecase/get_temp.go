@@ -3,7 +3,7 @@ package usecase
 import (
 	"context"
 
-	"github.com/AndersonOdilo/otel/service-b/internal/entity"
+	"github.com/AndersonOdilo/otel/service-a/internal/entity"
 	"go.opentelemetry.io/otel/trace"
 )
 
@@ -19,15 +19,13 @@ type GetTempOutputDTO struct {
 }
 
 type GetTempUseCase struct {
-	LocationRepository 	entity.LocationRepositoryInterface
 	TempRepository 		entity.TempRepositoryInterface
 	Context 			context.Context
 	Tracer            	trace.Tracer
 }
 
-func NewGetTempUseCase(locationRepository entity.LocationRepositoryInterface, tempRepository entity.TempRepositoryInterface, context context.Context, tracer trace.Tracer) *GetTempUseCase {
+func NewGetTempUseCase(tempRepository entity.TempRepositoryInterface, context context.Context, tracer trace.Tracer) *GetTempUseCase {
 	return &GetTempUseCase{
-		LocationRepository: locationRepository,
 		TempRepository: tempRepository,
 		Context: context,
 		Tracer: tracer,
@@ -36,27 +34,16 @@ func NewGetTempUseCase(locationRepository entity.LocationRepositoryInterface, te
 
 func (g *GetTempUseCase) Execute(input GetTempInputDTO) (GetTempOutputDTO, error) {
 
-
 	cep, err := entity.NewCep(input.Cep);
 
 	if (err != nil) {
 		return GetTempOutputDTO{}, err;
 	}
 
-	ctx, spanLocation := g.Tracer.Start(g.Context, "Chamando serviço de localização")
+	ctx, spanTemp := g.Tracer.Start(g.Context, "Chamando Serviço B")
 	g.Context = ctx;
 
-	location, err := g.LocationRepository.Get(cep);
-	spanLocation.End();
-
-	if (err != nil) {
-		return GetTempOutputDTO{}, err;
-	}
-
-	ctx, spanTemp := g.Tracer.Start(g.Context, "Chamado serviço de CEP")
-	g.Context = ctx;
-
-	temp, err := g.TempRepository.Get(&location);
+	temp, err := g.TempRepository.Get(ctx, cep);
 	spanTemp.End();
 
 	if (err != nil) {
@@ -65,9 +52,9 @@ func (g *GetTempUseCase) Execute(input GetTempInputDTO) (GetTempOutputDTO, error
 
 	outputDTO := GetTempOutputDTO{
 		Celsius:        temp.Celsius,
-		Fahrenheit:     temp.Celsius * 1.8 + 32,
-		Kelvin:        	temp.Celsius + 273,
-		City:        	location.Cidade,
+		Fahrenheit:     temp.Fahrenheit,
+		Kelvin:        	temp.Kelvin,
+		City:        	temp.City,
 	}
 
 
