@@ -19,3 +19,4 @@ docker-compose up
 
 1. Teste a aplicação REST API server
     - faça as chamadas usando o arquivo [api.http](api/api.http)
+    - acesse o edpoint http://localhost:9411/zipkin para visualizar o tracer das chamdas

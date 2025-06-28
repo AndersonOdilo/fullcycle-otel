@@ -1,0 +1,45 @@
+###
+
+POST http://localhost:8080 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+    "cep": 12345678
+}
+
+###
+
+POST http://localhost:8080 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+    "cep": "12345"
+}
+
+
+###
+
+POST http://localhost:8080 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+    "cep": "12345678"
+}
+
+
+###
+
+
+POST http://localhost:8080 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+    "cep": "80530908"
+}
+
+
+###
