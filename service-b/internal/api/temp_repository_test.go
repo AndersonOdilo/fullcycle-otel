@@ -3,8 +3,8 @@ package api
 import (
 	"testing"
 
-	"github.com/AndersonOdilo/otel/system-temp/configs"
-	"github.com/AndersonOdilo/otel/system-temp/internal/entity"
+	"github.com/AndersonOdilo/otel/service-b/configs"
+	"github.com/AndersonOdilo/otel/service-b/internal/entity"
 	"github.com/stretchr/testify/suite"
 )
 

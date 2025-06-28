@@ -4,9 +4,9 @@ import (
 	"context"
 	"testing"
 
-	"github.com/AndersonOdilo/otel/system-temp/configs"
-	"github.com/AndersonOdilo/otel/system-temp/internal/api"
-	"github.com/AndersonOdilo/otel/system-temp/internal/entity"
+	"github.com/AndersonOdilo/otel/service-b/configs"
+	"github.com/AndersonOdilo/otel/service-b/internal/api"
+	"github.com/AndersonOdilo/otel/service-b/internal/entity"
 	"github.com/stretchr/testify/suite"
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/trace"

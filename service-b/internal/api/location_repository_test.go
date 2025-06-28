@@ -3,7 +3,7 @@ package api
 import (
 	"testing"
 
-	"github.com/AndersonOdilo/otel/system-temp/internal/entity"
+	"github.com/AndersonOdilo/otel/service-b/internal/entity"
 	"github.com/stretchr/testify/assert"
 )
 

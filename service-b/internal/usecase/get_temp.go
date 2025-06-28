@@ -3,7 +3,7 @@ package usecase
 import (
 	"context"
 
-	"github.com/AndersonOdilo/otel/system-temp/internal/entity"
+	"github.com/AndersonOdilo/otel/service-b/internal/entity"
 	"go.opentelemetry.io/otel/trace"
 )
 

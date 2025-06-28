@@ -36,7 +36,7 @@ services:
 
   service-b:
     build: 
-      dockerfile: dockerfile.service-b
+      dockerfile: ./service-b/dockerfile
     restart: always
     ports:
       - 8081:8081

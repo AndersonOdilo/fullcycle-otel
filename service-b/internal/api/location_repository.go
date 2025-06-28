@@ -7,7 +7,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/AndersonOdilo/otel/system-temp/internal/entity"
+	"github.com/AndersonOdilo/otel/service-b/internal/entity"
 )
 
 

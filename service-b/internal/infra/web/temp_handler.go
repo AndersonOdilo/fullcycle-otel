@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/AndersonOdilo/otel/system-temp/internal/entity"
-	"github.com/AndersonOdilo/otel/system-temp/internal/usecase"
+	"github.com/AndersonOdilo/otel/service-b/internal/entity"
+	"github.com/AndersonOdilo/otel/service-b/internal/usecase"
 	"github.com/go-chi/chi/v5"
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/propagation"
@@ -31,9 +31,6 @@ func (h *WebTempHandler) Get(w http.ResponseWriter, r *http.Request) {
 	carrier := propagation.HeaderCarrier(r.Header)
 	ctx := r.Context()
 	ctx = otel.GetTextMapPropagator().Extract(ctx, carrier)
-
-	// ctx, span := h.Tracer.Start(ctx, "getLocationAndTemp")
-	// defer span.End();
 
 	inputDTO := usecase.GetTempInputDTO{
 		Cep:chi.URLParam(r, "cep") ,
